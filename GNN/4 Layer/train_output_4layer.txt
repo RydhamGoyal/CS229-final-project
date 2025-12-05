@@ -1,0 +1,146 @@
+Using device: cuda
+Loaded 31 devices from /data1/rydham/cs229_gnn/4_layer/../Dataset/List_Of_Devices.txt
+
+--- Loading train & test flows ---
+Loaded 203928 flows from /data1/rydham/cs229_gnn/4_layer/../Dataset/all_features_with_mac_part1_80.jsonl
+  Skipped unknown MACs: 96
+  Skipped malformed / missing features: 0
+Loaded 51003 flows from /data1/rydham/cs229_gnn/4_layer/../Dataset/all_features_with_mac_part2_20.jsonl
+  Skipped unknown MACs: 3
+  Skipped malformed / missing features: 0
+
+Train nodes: 203928, Test nodes: 51003
+Num features: 17, Num classes: 30
+
+--- Building edge indices (k random same-device neighbors) ---
+Train edge_index shape: torch.Size([2, 4078560])
+Test edge_index shape:  torch.Size([2, 1020060])
+
+Train nodes (mask): 173338
+Val nodes (mask):   30590
+
+Model:
+ SAGEModelDeep4Layer(
+  (convs): ModuleList(
+    (0): SAGEConv(17, 256, aggr=mean)
+    (1-3): 3 x SAGEConv(256, 256, aggr=mean)
+  )
+  (bns): ModuleList(
+    (0-3): 4 x BatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (lin): Linear(in_features=256, out_features=30, bias=True)
+)
+
+--- Training (4-layer GraphSAGE) ---
+Epoch 001 | Train loss 3.3849, acc 0.001, F1_macro 0.003, F1_weighted 0.000 | Val loss 3.4468, acc 0.001, F1_macro 0.003, F1_weighted 0.000
+Epoch 002 | Train loss 2.9320, acc 0.008, F1_macro 0.026, F1_weighted 0.007 | Val loss 3.1220, acc 0.007, F1_macro 0.025, F1_weighted 0.006
+Epoch 004 | Train loss 2.6000, acc 0.035, F1_macro 0.041, F1_weighted 0.052 | Val loss 2.7728, acc 0.033, F1_macro 0.038, F1_weighted 0.050
+Epoch 005 | Train loss 2.4394, acc 0.363, F1_macro 0.127, F1_weighted 0.448 | Val loss 2.6225, acc 0.364, F1_macro 0.126, F1_weighted 0.449
+Epoch 006 | Train loss 2.2741, acc 0.591, F1_macro 0.169, F1_weighted 0.619 | Val loss 2.4968, acc 0.589, F1_macro 0.166, F1_weighted 0.617
+Epoch 009 | Train loss 1.9060, acc 0.682, F1_macro 0.177, F1_weighted 0.668 | Val loss 2.1985, acc 0.680, F1_macro 0.174, F1_weighted 0.668
+Epoch 010 | Train loss 1.7846, acc 0.691, F1_macro 0.205, F1_weighted 0.677 | Val loss 2.0669, acc 0.689, F1_macro 0.202, F1_weighted 0.677
+Epoch 011 | Train loss 1.6909, acc 0.699, F1_macro 0.244, F1_weighted 0.692 | Val loss 1.9472, acc 0.697, F1_macro 0.251, F1_weighted 0.691
+Epoch 012 | Train loss 1.5923, acc 0.765, F1_macro 0.287, F1_weighted 0.759 | Val loss 1.8159, acc 0.762, F1_macro 0.276, F1_weighted 0.756
+Epoch 013 | Train loss 1.4901, acc 0.788, F1_macro 0.335, F1_weighted 0.783 | Val loss 1.6992, acc 0.786, F1_macro 0.330, F1_weighted 0.781
+Epoch 014 | Train loss 1.3935, acc 0.809, F1_macro 0.357, F1_weighted 0.800 | Val loss 1.5914, acc 0.807, F1_macro 0.346, F1_weighted 0.800
+Epoch 015 | Train loss 1.3049, acc 0.813, F1_macro 0.368, F1_weighted 0.802 | Val loss 1.4931, acc 0.811, F1_macro 0.354, F1_weighted 0.801
+Epoch 016 | Train loss 1.2253, acc 0.821, F1_macro 0.390, F1_weighted 0.813 | Val loss 1.4058, acc 0.818, F1_macro 0.383, F1_weighted 0.812
+Epoch 017 | Train loss 1.1568, acc 0.827, F1_macro 0.414, F1_weighted 0.822 | Val loss 1.3343, acc 0.824, F1_macro 0.406, F1_weighted 0.820
+Epoch 019 | Train loss 1.0253, acc 0.850, F1_macro 0.436, F1_weighted 0.855 | Val loss 1.1953, acc 0.848, F1_macro 0.422, F1_weighted 0.853
+Epoch 020 | Train loss 0.9598, acc 0.866, F1_macro 0.460, F1_weighted 0.871 | Val loss 1.1210, acc 0.864, F1_macro 0.439, F1_weighted 0.870
+Epoch 021 | Train loss 0.8963, acc 0.877, F1_macro 0.499, F1_weighted 0.879 | Val loss 1.0454, acc 0.874, F1_macro 0.483, F1_weighted 0.877
+Epoch 022 | Train loss 0.8364, acc 0.883, F1_macro 0.515, F1_weighted 0.882 | Val loss 0.9709, acc 0.882, F1_macro 0.499, F1_weighted 0.881
+Epoch 023 | Train loss 0.7844, acc 0.888, F1_macro 0.528, F1_weighted 0.884 | Val loss 0.9062, acc 0.887, F1_macro 0.519, F1_weighted 0.884
+Epoch 024 | Train loss 0.7393, acc 0.892, F1_macro 0.542, F1_weighted 0.889 | Val loss 0.8523, acc 0.892, F1_macro 0.529, F1_weighted 0.889
+Epoch 025 | Train loss 0.6973, acc 0.897, F1_macro 0.554, F1_weighted 0.895 | Val loss 0.8047, acc 0.897, F1_macro 0.532, F1_weighted 0.895
+Epoch 026 | Train loss 0.6587, acc 0.902, F1_macro 0.568, F1_weighted 0.903 | Val loss 0.7621, acc 0.902, F1_macro 0.545, F1_weighted 0.904
+Epoch 027 | Train loss 0.6237, acc 0.907, F1_macro 0.587, F1_weighted 0.911 | Val loss 0.7233, acc 0.907, F1_macro 0.562, F1_weighted 0.911
+Epoch 028 | Train loss 0.5930, acc 0.911, F1_macro 0.609, F1_weighted 0.917 | Val loss 0.6873, acc 0.912, F1_macro 0.574, F1_weighted 0.918
+Epoch 029 | Train loss 0.5641, acc 0.916, F1_macro 0.620, F1_weighted 0.924 | Val loss 0.6547, acc 0.917, F1_macro 0.583, F1_weighted 0.924
+Epoch 030 | Train loss 0.5382, acc 0.923, F1_macro 0.635, F1_weighted 0.931 | Val loss 0.6250, acc 0.924, F1_macro 0.598, F1_weighted 0.932
+Epoch 031 | Train loss 0.5117, acc 0.930, F1_macro 0.669, F1_weighted 0.940 | Val loss 0.5938, acc 0.932, F1_macro 0.627, F1_weighted 0.941
+Epoch 032 | Train loss 0.4876, acc 0.933, F1_macro 0.680, F1_weighted 0.943 | Val loss 0.5645, acc 0.934, F1_macro 0.638, F1_weighted 0.943
+Epoch 033 | Train loss 0.4663, acc 0.936, F1_macro 0.690, F1_weighted 0.945 | Val loss 0.5383, acc 0.936, F1_macro 0.646, F1_weighted 0.946
+Epoch 034 | Train loss 0.4460, acc 0.939, F1_macro 0.697, F1_weighted 0.948 | Val loss 0.5122, acc 0.940, F1_macro 0.659, F1_weighted 0.948
+Epoch 035 | Train loss 0.4284, acc 0.941, F1_macro 0.707, F1_weighted 0.950 | Val loss 0.4885, acc 0.942, F1_macro 0.668, F1_weighted 0.951
+Epoch 039 | Train loss 0.3671, acc 0.953, F1_macro 0.737, F1_weighted 0.960 | Val loss 0.4116, acc 0.953, F1_macro 0.711, F1_weighted 0.960
+Epoch 040 | Train loss 0.3523, acc 0.956, F1_macro 0.746, F1_weighted 0.963 | Val loss 0.3942, acc 0.956, F1_macro 0.717, F1_weighted 0.963
+Epoch 041 | Train loss 0.3378, acc 0.959, F1_macro 0.756, F1_weighted 0.966 | Val loss 0.3777, acc 0.959, F1_macro 0.721, F1_weighted 0.966
+Epoch 042 | Train loss 0.3245, acc 0.961, F1_macro 0.763, F1_weighted 0.968 | Val loss 0.3630, acc 0.961, F1_macro 0.722, F1_weighted 0.968
+Epoch 043 | Train loss 0.3123, acc 0.962, F1_macro 0.771, F1_weighted 0.969 | Val loss 0.3502, acc 0.962, F1_macro 0.745, F1_weighted 0.969
+Epoch 045 | Train loss 0.2928, acc 0.963, F1_macro 0.773, F1_weighted 0.970 | Val loss 0.3304, acc 0.964, F1_macro 0.713, F1_weighted 0.970
+Epoch 049 | Train loss 0.2579, acc 0.965, F1_macro 0.780, F1_weighted 0.972 | Val loss 0.2937, acc 0.966, F1_macro 0.749, F1_weighted 0.972
+Epoch 050 | Train loss 0.2501, acc 0.966, F1_macro 0.781, F1_weighted 0.972 | Val loss 0.2851, acc 0.966, F1_macro 0.753, F1_weighted 0.972
+Epoch 051 | Train loss 0.2424, acc 0.967, F1_macro 0.788, F1_weighted 0.973 | Val loss 0.2760, acc 0.967, F1_macro 0.756, F1_weighted 0.973
+Epoch 052 | Train loss 0.2360, acc 0.968, F1_macro 0.793, F1_weighted 0.973 | Val loss 0.2676, acc 0.968, F1_macro 0.760, F1_weighted 0.973
+Epoch 053 | Train loss 0.2300, acc 0.969, F1_macro 0.796, F1_weighted 0.974 | Val loss 0.2594, acc 0.969, F1_macro 0.764, F1_weighted 0.974
+Epoch 054 | Train loss 0.2244, acc 0.969, F1_macro 0.801, F1_weighted 0.974 | Val loss 0.2519, acc 0.969, F1_macro 0.766, F1_weighted 0.974
+Epoch 055 | Train loss 0.2187, acc 0.970, F1_macro 0.806, F1_weighted 0.975 | Val loss 0.2442, acc 0.970, F1_macro 0.771, F1_weighted 0.974
+Epoch 056 | Train loss 0.2130, acc 0.971, F1_macro 0.809, F1_weighted 0.976 | Val loss 0.2365, acc 0.971, F1_macro 0.772, F1_weighted 0.975
+Epoch 057 | Train loss 0.2070, acc 0.972, F1_macro 0.809, F1_weighted 0.976 | Val loss 0.2287, acc 0.972, F1_macro 0.776, F1_weighted 0.976
+Epoch 059 | Train loss 0.1958, acc 0.973, F1_macro 0.811, F1_weighted 0.977 | Val loss 0.2144, acc 0.974, F1_macro 0.786, F1_weighted 0.978
+Epoch 060 | Train loss 0.1909, acc 0.974, F1_macro 0.811, F1_weighted 0.978 | Val loss 0.2087, acc 0.975, F1_macro 0.789, F1_weighted 0.978
+Epoch 061 | Train loss 0.1859, acc 0.975, F1_macro 0.813, F1_weighted 0.978 | Val loss 0.2033, acc 0.975, F1_macro 0.793, F1_weighted 0.979
+Epoch 062 | Train loss 0.1806, acc 0.975, F1_macro 0.814, F1_weighted 0.979 | Val loss 0.1982, acc 0.976, F1_macro 0.795, F1_weighted 0.979
+Epoch 063 | Train loss 0.1756, acc 0.975, F1_macro 0.815, F1_weighted 0.979 | Val loss 0.1933, acc 0.976, F1_macro 0.796, F1_weighted 0.979
+Epoch 065 | Train loss 0.1661, acc 0.975, F1_macro 0.817, F1_weighted 0.979 | Val loss 0.1844, acc 0.975, F1_macro 0.795, F1_weighted 0.979
+Epoch 066 | Train loss 0.1620, acc 0.975, F1_macro 0.819, F1_weighted 0.979 | Val loss 0.1804, acc 0.975, F1_macro 0.797, F1_weighted 0.979
+Epoch 070 | Train loss 0.1502, acc 0.977, F1_macro 0.820, F1_weighted 0.981 | Val loss 0.1675, acc 0.977, F1_macro 0.795, F1_weighted 0.981
+Epoch 071 | Train loss 0.1470, acc 0.977, F1_macro 0.821, F1_weighted 0.981 | Val loss 0.1635, acc 0.978, F1_macro 0.798, F1_weighted 0.981
+Epoch 073 | Train loss 0.1420, acc 0.978, F1_macro 0.822, F1_weighted 0.981 | Val loss 0.1571, acc 0.979, F1_macro 0.800, F1_weighted 0.982
+Epoch 074 | Train loss 0.1401, acc 0.978, F1_macro 0.825, F1_weighted 0.981 | Val loss 0.1549, acc 0.979, F1_macro 0.802, F1_weighted 0.982
+Epoch 075 | Train loss 0.1375, acc 0.979, F1_macro 0.826, F1_weighted 0.982 | Val loss 0.1521, acc 0.979, F1_macro 0.801, F1_weighted 0.982
+Epoch 076 | Train loss 0.1339, acc 0.979, F1_macro 0.830, F1_weighted 0.982 | Val loss 0.1484, acc 0.980, F1_macro 0.832, F1_weighted 0.982
+Epoch 077 | Train loss 0.1313, acc 0.980, F1_macro 0.832, F1_weighted 0.983 | Val loss 0.1451, acc 0.980, F1_macro 0.834, F1_weighted 0.983
+Epoch 080 | Train loss 0.1281, acc 0.978, F1_macro 0.826, F1_weighted 0.982 | Val loss 0.1397, acc 0.979, F1_macro 0.799, F1_weighted 0.982
+Epoch 085 | Train loss 0.1189, acc 0.980, F1_macro 0.822, F1_weighted 0.983 | Val loss 0.1286, acc 0.980, F1_macro 0.805, F1_weighted 0.983
+Epoch 090 | Train loss 0.1141, acc 0.982, F1_macro 0.831, F1_weighted 0.985 | Val loss 0.1225, acc 0.982, F1_macro 0.811, F1_weighted 0.985
+Epoch 095 | Train loss 0.1094, acc 0.983, F1_macro 0.837, F1_weighted 0.985 | Val loss 0.1174, acc 0.983, F1_macro 0.817, F1_weighted 0.986
+Early stopping at epoch 97 (no val macro-F1 improvement for 20 epochs)
+
+Saved metrics to /data1/rydham/cs229_gnn/4_layer/metrics_4layer.csv
+Saved best model state_dict to /data1/rydham/cs229_gnn/4_layer/best_model_4layer.pt
+
+[TEST - 4-layer] Loss: 18.2607 | Accuracy: 0.931 | Macro-F1: 0.527 | Weighted-F1: 0.947
+
+Classification report on test set (4-layer):
+              precision    recall  f1-score   support
+
+           0      0.999     1.000     1.000      3462
+           1      0.000     0.000     0.000         0
+           2      0.500     1.000     0.667         8
+           3      1.000     0.860     0.925      1192
+           4      0.911     1.000     0.953      1417
+           5      0.952     0.619     0.750      6068
+           6      0.000     0.000     0.000        22
+           7      0.571     1.000     0.727        20
+           8      0.579     0.786     0.667        14
+           9      0.045     1.000     0.087         4
+          10      0.923     1.000     0.960        12
+          11      0.000     0.000     0.000        27
+          12      1.000     0.991     0.996      5217
+          13      0.281     1.000     0.439         9
+          14      0.267     1.000     0.421         8
+          15      1.000     1.000     1.000       578
+          16      0.000     0.000     0.000       290
+          17      1.000     0.987     0.993      9524
+          18      0.000     0.000     0.000         0
+          19      1.000     1.000     1.000         2
+          20      0.000     0.000     0.000        26
+          21      0.515     0.480     0.497       902
+          22      1.000     1.000     1.000         2
+          23      0.115     1.000     0.207         3
+          25      0.000     0.000     0.000         0
+          26      1.000     0.988     0.994      2091
+          27      0.993     1.000     0.996     20105
+          28      0.000     0.000     0.000         0
+          29      0.000     0.000     0.000         0
+
+    accuracy                          0.931     51003
+   macro avg      0.505     0.645     0.527     51003
+weighted avg      0.972     0.931     0.947     51003
+
+Saved confusion matrix to /data1/rydham/cs229_gnn/4_layer/confusion_matrix_4layer.png
+Saved training curves to /data1/rydham/cs229_gnn/4_layer/train_curves_4layer.png
+
+Done (4-layer).
