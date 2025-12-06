@@ -1,0 +1,11 @@
+[package]
+name = "itransformer"
+version = "1.0.1"
+edition = "2021"
+license = "MIT"
+description = "A Rust library for the iTransformer model."
+repository = "https://github.com/rust-dd/iTransformer"
+
+[dependencies]
+either = "1.13.0"
+tch = { version = "0.18.1", features = ["download-libtorch"] }

@@ -1,0 +1,73 @@
+[package]
+name = "retina-core"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+bindgen = "0.72.1" 
+cc = "1.0.79"
+
+[dependencies]
+anyhow = "1.0.70"
+base64 = "0.13.1"
+bimap = "0.6.3"
+byteorder = "1.4.3"
+chrono = "0.4"
+colored = "2"
+cpu-time = "1.0.0"
+crossbeam-channel = "0.5.8"
+csv = "1.2.1"
+ctrlc = { version = "3.2.5", features = ["termination"] }
+dns-parser = { git = "https://github.com/thegwan/dns-parser.git" }
+hashlink = "0.7.0"
+hdrhistogram = "7.5.2"
+hex = { version = "0.4.3", features = ["serde"] }
+httparse = "1.8"
+indexmap = "1.9.3"
+ipnet = "2.7.2"
+itertools = "0.10.5"
+lazy_static = "1.4.0"
+log = { version = "0.4", features = ["release_max_level_info"] }
+maplit = "1.0.2"
+md5 = "0.7.0"
+nom = "7.1.3"
+pcap = "0.8.1"
+pest = "2.5.7"
+pest_derive = "2.5"
+petgraph = "0.5.1"
+pnet = "0.33.0"
+prettytable-rs = "0.10.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.96"
+ndarray = "0.15.6"
+ndarray-stats = "0.5.1"
+statrs = "0.16.0"
+strum = "0.20"
+strum_macros = "0.20"
+thiserror = "1.0"
+tls-parser = { git = "https://github.com/thegwan/tls-parser.git" }
+toml = "0.5.11"
+x509-parser = "0.13.2"
+
+[features]
+timing = []
+mlx5 = []
+default = ["mlx5"]
+dur = []
+proto = []
+s_bytes_sum = []
+d_bytes_sum = []
+s_ttl_mean = []
+d_ttl_mean = []
+s_load = []
+d_load = []
+s_pkt_cnt = []
+d_pkt_cnt = []
+s_bytes_mean = []
+d_bytes_mean = []
+s_iat_mean = []
+d_iat_mean = []
+tcp_rtt = []
+syn_ack = []
+ack_dat = []

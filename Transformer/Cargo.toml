@@ -1,0 +1,15 @@
+[workspace]
+members = [
+    "core",
+    "examples/extract_features",
+    "examples/log_features",
+    "examples/serve_ml",
+    "filtergen",
+]
+
+[profile.release]
+lto = true
+
+[patch.crates-io]
+pcap = { git = 'https://github.com/thegwan/pcap', branch = 'compile-optimized' }
+

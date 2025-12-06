@@ -1,0 +1,14 @@
+{
+  "depth": 6,
+  "dim": 256,
+  "dim_head": null,
+  "flash_attn": false,
+  "heads": null,
+  "lookback_len": 1,
+  "num_tokens_per_variate": null,
+  "num_variates": 17,
+  "pred_length": [
+    1
+  ],
+  "use_reversible_instance_norm": false
+}
