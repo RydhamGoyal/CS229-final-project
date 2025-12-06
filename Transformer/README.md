@@ -1,4 +1,6 @@
-# Retina
+# Retina (Modified for CS229 ML Final Project)
+
+See [here](https://github.com/alpine100/CS229_Final_Project/blob/main/Transformer/examples/serve_ml/README.md) for detailed README on how to compile, launch, and run the ML models used in the CS 229 project.
 
 [![build-status](https://github.com/stanford-esrg/retina/actions/workflows/ci.yml/badge.svg)](https://github.com/stanford-esrg/retina/actions)
 [![doc-status](https://github.com/stanford-esrg/retina/actions/workflows/rustdoc.yml/badge.svg)](https://stanford-esrg.github.io/retina/retina_core)
